@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #EFF4F2;
+  color: #102A2E;
+}
+
+@layer utilities {
+  .focus-ring {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-ember-500 focus-visible:ring-offset-2 focus-visible:ring-offset-mist-100;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Postcard-style stamp used as day markers */
+.stamp-edge {
+  -webkit-mask-image: radial-gradient(circle 3px at 6px 6px, transparent 3px, black 3.1px);
+  -webkit-mask-size: 12px 12px;
+  -webkit-mask-repeat: round;
+  mask-image: radial-gradient(circle 3px at 6px 6px, transparent 3px, black 3.1px);
+  mask-size: 12px 12px;
+  mask-repeat: round;
+}
+
+/* Skeleton shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #E4EAE7 0%, #F3F6F4 50%, #E4EAE7 100%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
